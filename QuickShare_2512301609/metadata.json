@@ -1,0 +1,8 @@
+
+{
+  "name": "Yclock - Ethereal Alarm Suite",
+  "description": "An elite, quantum-inspired temporal management system. Features Yclock Neural Briefings, holographic synchronization, and high-fidelity audio-spatial alerts.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
