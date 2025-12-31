@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.example.alaram"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <application
+        android:allowBackup="true"
+        android:label="alaram"
+        android:theme="@style/Theme.AppCompat.DayNight">
+
+        <activity android:name=".FullscreenActivity"
+            android:exported="true"
+            android:showOnLockScreen="true"
+            android:turnScreenOn="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity" android:exported="true" />
+
+        <service android:name=".AlarmForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback|phoneCall" />
+
+        <receiver android:name=".AlarmReceiver" android:exported="true" />
+
+    </application>
+
+</manifest>
