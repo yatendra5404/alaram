@@ -13,6 +13,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
@@ -56,9 +57,10 @@ fun AlarmUi(onSet: (Int, Int) -> Unit) {
                 Spacer(modifier = Modifier.height(8.dp))
                 Button(onClick = { anim = !anim }) { Text(if (anim) "Stop Pulse" else "Start Pulse") }
                 Spacer(modifier = Modifier.height(12.dp))
+                val ctx = LocalContext.current
                 Button(onClick = {
                     val calendar = Calendar.getInstance()
-                    TimePickerDialog(it.context, { _, h, m -> onSet(h, m) }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true).show()
+                    TimePickerDialog(ctx, { _, h, m -> onSet(h, m) }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true).show()
                 }) { Text("Set Alarm") }
             }
         }
